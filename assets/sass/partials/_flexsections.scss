@@ -1,0 +1,788 @@
+/* ============================================================== */
+
+// General ===================================
+
+img { max-width: 100%; }
+section,
+.row { @include clear(); position: relative; }
+.row form .row { margin: 0; }
+.row.narrow { padding: 40px 0; }
+.col-2 {
+
+}
+
+// Grid ==================================================================
+
+.half {
+	position: relative;
+	@include span(6 of 12);
+	&:nth-of-type(2n+2) { @include last(); }
+}
+.third {
+	@include span(4 of 12);
+	&:nth-of-type(3n+3) { @include last(); }
+}
+@include breakpoint(xs) {
+	.two-column .half,
+	.half,.third {
+		&:nth-of-type(n) { @include span(full); }
+	}
+}	
+
+// section colors ==========================================================
+
+h1,h2,h3,h4,h5,h6 {
+	&.med { color: $gray; }
+	&.secondary { color: $secondary; }
+	&.primary { color: $primary; }
+	&.alert, &.pink { color: $alert; }
+	&.dark { color: $dark; }
+	&.orange { color: $orange; }
+	&.green { color: $green; }
+}
+.row {
+	&.light { background-color: $light; }
+	&.med { background-color: $gray; }
+	&.secondary { background-color: $secondary; }
+	&.primary { background-color: $primary; }
+	&.alert { background-color: $alert; }
+	&.dark { background-color: $dark; }
+}
+
+// for dark sections
+.light-text {
+	&.dark .expand-collapse dt a,
+	h1, h2, h3, h4, h5, h6, p, address, time, ul li, a, dt a, .title { color: #fff; }
+	h2,h3,h4 { font-weight: 400; }
+	p a { text-decoration: underline; }
+	.title { border-color: #fff; }
+	.button {
+		border-color: #fff;
+		&:hover {
+			background-color: $primary-light;
+			color: #fff;
+		}
+	}
+}
+blockquote.aligncenter p {
+	text-align: center;
+}
+
+// flex sections ============================================================
+
+.full-width {
+	>div {
+		max-width: 690px; margin: 0 auto;
+		h1,h2,h3,h4,h5,h6 {
+			&:only-child,
+			&:last-child { margin-bottom: 0; }
+		}
+	}
+	blockquote,
+	blockquote p {
+		width: 100%;
+		max-width: 100%;
+		font-size: 28px;
+		font-weight: 300;
+		color: $secondary;
+		padding: 0;
+		margin: 0;
+		+p { margin-top: 40px; }
+	}
+	.gform_wrapper {
+		.gfield,label { text-align: left; }
+		.gform_page_footer {
+			text-align: right;
+		}
+	}
+	&.center {
+		// .gform_wrapper { max-width: 550px; margin: 0 auto; }
+		img { margin-bottom: 20px; }
+	}
+}
+
+.two-column {
+	padding: 0;
+	margin: 0;
+	>div {
+		width: 100%;
+		height: 100%;
+		max-width: 100%;
+		padding: 0;
+		margin: 0;
+		@include flexcontainer(center,center,stretch);
+	}
+	.half {
+		background-size: cover;
+		background-position: 50%;
+		background-repeat: no-repeat;
+		min-height: 400px;
+		position: relative;
+
+		@include flexcontainer();
+		@include span(6 of 12 no-gutters);
+		&:nth-of-type(2n+2) { @include last(); }
+
+		width: 50%;
+		margin-right: 0;
+		>div { padding: 7% 5%; }
+		ul:not(.bullet) { @include checklist(); }
+		h2 b,
+		h2 span { display: block; font-weight: 200; font-style: italic; }
+		sup { font-style: normal; position: relative; left: 8px; }
+		&.content-fit {
+			justify-content: flex-start;
+			&:nth-of-type(1) { justify-content: flex-end; }
+			>div {
+				width: 100%;
+				padding: 90px 5% 90px 15px;
+				max-width: $contentwidth / 2;
+				@include breakpoint(md) {
+					max-width: 100%;
+				}
+			}
+		}
+		&.align {
+			justify-content: flex-start;
+			@include breakpoint(lg) { padding-right: 15px; }
+			img { 
+				display: block; margin-left: 0; margin-top: 50px; margin-bottom: 50px; 
+				@include breakpoint(xs) { margin: 0 auto; }
+			}
+		}
+		&.pink {
+			h2,h3,h4 { color: $pink; }
+			.button { color: $pink; border-color: $pink; 
+				&:hover { color: #fff; background-color: $pink; }
+			}
+		}
+		&.orange {
+			h2,h3,h4 { color: $orange; }
+			.button { color: $orange; border-color: $orange; 
+				&:hover { color: #fff; background-color: $orange; }
+			}
+		}
+		&.green {
+			h2,h3,h4 { color: $green; }
+			.button { color: $green; border-color: $green; 
+				&:hover { color: #fff; background-color: $green; }
+			}
+		}
+		&.primary {
+			h2,h3,h4 { color: $primary; }
+			.button { color: $primary; border-color: $primary; 
+				&:hover { color: #fff; background-color: $primary; }
+			}
+		}
+		&.secondary {
+			h2,h3,h4 { color: $secondary; }
+			.button { color: $secondary; border-color: $secondary; 
+				&:hover { color: #fff; background-color: $secondary; }
+			}
+		}
+		&.has-icon {
+			>div {
+				position: relative;
+				padding-left: 100px!important; 
+				img { 
+					width: 60px; height: 60px; 
+					position: absolute;
+					left: 24px; top: 94px;
+					display: block;
+					border-radius: $br-lg;
+				}
+				@include breakpoint(ss) {
+					padding-left: 0!important;
+					img {
+						position: relative;
+						left: auto;
+						top: auto;
+						margin-bottom: 15px;
+						width: 80px;
+						height: 80px;
+					}
+				}
+			}
+		}
+	} // end half
+	&.reverse .half {
+		&.content-fit > div { padding: 90px 15px 90px 5%; }
+		&:nth-of-type(1) { 
+			order: 1; 
+			&.content-fit { justify-content: flex-start; }
+		}
+		&:nth-of-type(2) { 
+			order: 0; 
+			&.content-fit { justify-content: flex-end; }
+		}
+		&.align {
+			justify-content: flex-end;
+			@include breakpoint(lg) { padding-right: 0; padding-left: 15px; }
+			img { 
+				margin-right: 0; 
+				@include breakpoint(xs) { margin: 0 auto; }
+			}
+		}
+	}
+	.video { 
+		min-height: 450px;
+		.videoWrapper { 
+			padding: 150px 0!important; 
+		}
+		@include breakpoint(xs) {
+			.videoWrapper {
+				padding-bottom: 56.25%!important;
+				padding-top: 25px!important;	
+			}
+		}
+	}
+
+	div.swiper-container {
+		padding: 0;
+		background:none;
+		max-width: 100%;
+		height: 100%; height: auto;
+		margin: 0;
+		&:after { display: none;  }
+		.swiper-wrapper {
+			max-width: 100%;
+			height: 100%;
+			padding: 0;
+		}
+		.swiper-slide {
+			width: 100%;
+			padding: 0;
+		}
+		.swiper-pagination {
+			left: 50%;
+			bottom: 30px;
+		}
+		.swiper-button-next { right: 20px; }
+		.swiper-button-prev { left: 20px; }
+		@include breakpoint(xlg) {
+			padding: 40px;
+		}
+	}
+
+	.btn-prev, 
+	.btn-next { top: 50%; margin-top: -21px; }
+	.btn-prev { left: 25px; }
+	.btn-next { right: 25px; }
+
+	@include breakpoint(md) {}
+	@include breakpoint(xs) {
+		&.reverse .half:nth-of-type(1) { order: 0; }
+		&.reverse .half:nth-of-type(2) { order: 1; }
+		.half { 
+			padding: 0; 
+			min-height: 0; 
+			>div { padding: 20px!important; }
+		}
+		blockquote { padding: 40px; }
+	}
+	@include breakpoint(ss) {}
+	
+} // end two-column
+
+// grid
+.block.row { 
+	text-align: center;
+	img { width: 100%; }
+	h2 { text-align: center; }
+	h3 { 
+		text-align: center;
+		margin: 0;
+		padding: 22px 0;
+		font-size: 24px;
+		font-family: $fonthead;
+	}
+	p { color: $dark; margin: 10px 15px 15px; }
+	.col { 
+		position: relative; 
+		margin-bottom: 25px;
+		@include span(4 of 12);
+		&:nth-of-type(3n+3) { @include last(); }
+		>a { 
+			display: block; 
+			width: 100%;
+			@include clear();
+		}
+		a { 
+			color: $primary;
+			img { margin-bottom: 0; } 
+		}
+		a:before,
+		a:after { content: ''; display: block; clear: both; }
+		p {
+			text-align: center; 
+			line-height: 1.5; 
+			+.button { margin-top: 5px; }
+		}
+		time+p { margin-top: 12px; }
+		.explore span:hover { color: $primary; }
+		@include breakpoint(xs) {
+			&:nth-of-type(n) { @include span(full); @include clear(); }
+		}
+		+.button { margin-top: 50px; }
+		.button:hover {
+			color: #fff;
+		}
+	}
+	&[data-count="2"] {
+		.col {
+			&:nth-of-type(n) { @include span(6 of 12); }
+			&:nth-of-type(2n+2) { @include last(); }
+		}
+	}
+	&[data-count="1"] {
+		.col {
+			&:nth-of-type(n) { @include span(full); }
+		}
+	}
+	a:hover figure.explore:after {
+		opacity: 0.4;
+	}
+	figure+div,
+	figure+span {
+		display: block;
+		padding: 20px;
+		position: relative;
+	}
+	a:hover {
+		h3,p { color: $primary; }
+	}
+	&.light-text { 
+		// h3 { color: $dark; }
+		.button:hover { color: $primary; }
+		.button {
+			background-color: #fff;
+			color: $primary;
+		}
+		p,a { color: #fff; }
+		a:hover {
+			p,span,h3 {
+				color: lighten($primary-light,5);
+			}
+		}
+		&.secondary {
+			a:hover {
+				p,span,h3 {
+					color: rgba(#fff,0.9);
+				}
+				.button { color: $secondary; }
+			}
+		}
+	}
+	&.side {
+		.col {
+			a {
+				section {
+					// @include flexcontainer(space-between,space-between);
+					@include flexcontainer();
+					// display: inline-flex;
+					// flex-direction: row;
+					// flex-wrap: nowrap;
+					
+					>span {
+						display: block;
+						width: 50%;
+						text-align: left;
+						// @include flexchild();
+						h3 { padding-top: 0; }
+						h3,p { text-align: left; padding-left: 0; margin-left: 0; }
+						&:nth-of-type(2) { padding-left: 30px; }
+						@include breakpoint(xs) {
+							width: 100%;
+							&:nth-of-type(2) { padding-left: 0; padding-top: 20px; }
+
+						}
+					}
+				}
+			}
+		}
+		&.reverse {
+			.col a section > span {
+				&:nth-of-type(2) { 
+					padding-left: 0; 
+					order: 1;
+					@include breakpoint(xs) {
+						order: 0;
+					}
+				}
+				&:nth-of-type(1) { 
+					order: 2;
+					@include breakpoint(xs) {
+						order: 0;
+					}
+				}
+			}
+		}
+	}
+	@include breakpoint(xs) {
+		.button { display: inline-block; }
+		.col { margin-bottom: 30px; }
+
+		&[data-count="2"],
+		&[data-count="1"] {
+			.col {
+				&:nth-of-type(n) { @include span(full); }
+			}
+		}
+
+	}
+} // block row
+
+
+
+.explore {
+	margin: 0;
+	padding: 0;
+	max-width: 100%;
+	position: absolute;
+	top: 0; right: 0; left: 0; bottom: 0;
+	cursor: pointer;
+	display: block;
+	&:after {
+		display: block;
+		opacity: 0;
+		position: absolute;
+		top: 0; right: 0; left: 0; bottom: 0;
+		background-color: rgba($primary,.75);
+		content: '';
+		z-index: 1;
+	}
+	span, h2,h3,h4 { position: relative; z-index: 5; }
+	span {
+		display: inline-block;
+		width: auto;
+		max-width: 100%;
+		opacity: 0;
+		margin: auto;
+		padding: 16px 20px;
+
+		background-color: #fff;
+		border: 2px solid $primary;
+		color: $primary;
+		font-size: 18px;
+
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		-webkit-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+		text-align: center;
+		z-index: 80;
+		box-shadow: none;
+	}
+	&:after,
+	span { transition: all 0.2s linear; }
+	// &:hover { opacity: 0.8;  }
+	&:hover:after,
+	&:hover span { opacity: 1; color: $primary; }
+	.button:hover { background-color: #fff; }
+}
+
+figure.explore { 
+	position: relative; 
+	&:after { bottom: 3px; }
+	a:hover &:after,
+	a:hover & span.button {
+		opacity: 1; 
+	}
+}
+
+
+
+// testimonials
+// .textslider {
+// 	text-align: center;
+// 	background-color: $secondary;
+// 	@include sectionpadding();
+// 	img { display: block; margin: 0 auto 20px; border-radius: 400px; }
+// 	blockquote {
+// 		max-width: 620px;
+// 		margin: 0 auto;
+// 		padding: 0 0 30px 0;
+// 		border: none;
+// 		background-color: transparent;
+// 	}
+// 	p {
+// 		max-width: 620px;
+// 		margin: 0 auto;
+// 		text-align: center;
+// 		font-size: 25px;
+// 	}
+// 	span { 
+// 		display: block; 
+// 		text-align: center; 
+// 		padding-top: 20px; 
+// 		color: #fff;
+// 	}
+// 	.swiper-button-next:before, 
+// 	.swiper-button-prev:before {
+// 		left: 0;
+// 	}
+// 	.button { margin-bottom: 0; }
+// 	@include breakpoint(xlg) {
+// 		.swiper-button-prev { left: 50px; }
+// 		.swiper-button-next { right: 50px; }
+// 	}
+// 	@media screen and (max-width: 850px) {
+// 		text-align: center!important;
+// 		.button { display: inline-block; }
+// 		.swiper-button-prev,
+// 		.swiper-button-next { top: 60px; }
+// 		.swiper-button-prev { left: 35vw; left: calc(50vw - 120px); }
+// 		.swiper-button-next { right: 35vw; right: calc(50vw - 120px); }
+// 		blockquote p { padding: 0 15px; }
+// 	}
+// 	@include breakpoint(xs) {
+// 		p { font-size: 22px; }
+// 	}
+// 	@include breakpoint(ss) {
+// 		p { font-size: 18px; }
+// 	}
+// }
+
+/* multi column section */
+.row.multi { 
+	text-align: center; 
+	img { 
+		display: block; margin: 0 auto; max-width: 100%; 
+		&+p { margin-top: 20px; }
+	}
+	>div>div { @include clear(); }
+	>div>.button { margin-top: 30px; }
+	>div>p { text-align: center; margin-bottom: 40px; }
+	div ul { text-align: left; margin-bottom: 40px; }
+	ul li { font-weight: 300; }
+	.col { 
+		padding: 0 8px; 
+		img { display: block; border-radius: $br; }
+		p+.button,
+		img+.button { margin-top: 30px; }
+		&.pink {
+			h3,h4 { color: $pink; }
+			.button { color: $pink; border-color: $pink; 
+				&:hover { color: #fff; background-color: $pink; }
+			}
+		}
+		&.orange {
+			h3,h4 { color: $orange; }
+			.button { color: $orange; border-color: $orange; 
+				&:hover { color: #fff; background-color: $orange; }
+			}
+		}
+		&.green {
+			h3,h4 { color: $green; }
+			.button { color: $green; border-color: $green; 
+				&:hover { color: #fff; background-color: $green; }
+			}
+		}
+		&.primary {
+			h3,h4 { color: $primary; }
+			.button { color: $primary; border-color: $primary; 
+				&:hover { color: #fff; background-color: $primary; }
+			}
+		}
+		&.secondary {
+			h3,h4 { color: $secondary; }
+			.button { color: $secondary; border-color: $secondary; 
+				&:hover { color: #fff; background-color: $secondary; }
+			}
+		}
+		@include breakpoint(xs) { padding: 0; margin: 25px 0; }
+	}
+	.title {
+		font-family: $fonthead;
+		margin: 0 auto 30px;
+		padding-bottom: 25px;
+		text-align: center;
+		+ .button { margin-bottom: 30px; }
+	}
+	&.center-headings {
+		text-align: center;
+		.col {
+			h2,h3,h4 { text-align: center; margin: 20px 0; }
+		}
+		.button { display: inline-block; float: none; }
+	}
+
+	figcaption {
+		display: block;
+		padding: 20px 25px;
+		h4 { padding-top: 0; margin-top: 0; }
+		time { text-align: left; font-size: 16px; display: block; }
+	}
+	a:hover figcaption {
+		h4 { color: $secondary; }
+	}
+	&[data-count="2"] {
+		.col {
+			&:nth-of-type(n) { @include span(6 of 12); }
+			&:nth-of-type(2n+2) { @include last(); }
+		}
+	}
+	&[data-count="3"] {
+		.col {
+			&:nth-of-type(n) { @include span(4 of 12); }
+			&:nth-of-type(3n+3) { @include last(); }
+		}
+	}
+	&[data-count="4"] {
+		.col {
+			&:nth-of-type(n) { @include span(3 of 12); }
+			&:nth-of-type(4n+4) { @include last(); }
+		}
+	}
+	@include breakpoint(xs) {
+		&[data-count] {
+			.col { &:nth-of-type(n) { @include span(full); } }
+		}
+	}
+} // end multi column
+
+
+.expand-collapse {
+	dd { 
+		display: none; 
+		padding: 10px;
+		border: 1px solid $med;
+		border-radius: $br;
+		background-color: lighten($light,4);
+		border-top: none;
+		border-top-right-radius: 0;
+		border-top-left-radius: 0;
+	}
+	dt { 
+		border: 1px solid $med;
+		border-radius: $br;
+		background-color: lighten($light,4);
+		margin-top: 15px;
+		&:first-child { margin-top: 0; }
+		a { 
+			color: $secondary; 
+			border-radius: $br;
+			display: block; 
+			padding: 18px 15px;
+			position: relative;
+			font-weight: normal;
+			font-size: 22px;
+			&:hover { 
+				color: $primary; background-color: lighten($light,4); 
+				&:after { color: $primary; }
+			}
+			&:after { 
+				position: absolute; top: 20px; right: 15px;
+				@include fa(); content: '\f067';
+				font-size: 14px;
+				color: lighten($secondary,6);
+			}
+		}
+		&.open {
+			border-bottom-right-radius: 0;
+			border-bottom-left-radius: 0;
+			border-bottom: none;
+			a {
+				color: $primary;
+				margin-bottom: 0;
+				&:after {
+					content: '\f068';
+					color: $secondary;
+				}
+				&:hover:after,
+				&:hover { color: $dark; }
+			}
+		}
+	}
+	@include breakpoint(xs) {
+		dt a { padding: 12px 50px 12px 3px; line-height: 1; }
+		a:after { top: 12px; }
+	}
+}
+
+section.cta {
+	background-color: $alert;
+	padding: 40px 0;
+	p,a,strong { color: #fff; }
+	h2,h3,h4,h5,h6 { 
+		color: #fff; 
+		text-transform: none;
+		&:first-child { margin-top: 0; }
+	}
+	h2 { margin-bottom: 0; }
+	p { max-width: 700px; margin: 0 auto; }
+	.button {
+		background-color: $secondary;
+		border-color: $secondary;
+		&:hover { background-color: $secondary-light; }
+	}
+	&.center {
+		text-align: center;
+		* { text-align: center; }
+		.button { margin-top: 20px; }
+	}
+	&.inline {
+		>div {
+			@include flexcontainer();
+			h2,h3,h4,h5 { margin: 0; }
+		}
+		.button { margin: 0 0 0 30px; }
+	}
+	@include breakpoint(sm) {
+		* { text-align: center; }
+		p { margin: 15px; }
+		h2 strong { display: block; }
+		.button { margin: 10px 0 0; display: inline-block; }
+		&.inline {
+			.button { margin: 15px auto; }
+		}
+	}
+	@include breakpoint(xs) {
+
+	}
+}
+
+// showcase
+.showcase {
+	ul {
+		margin: 0!important;
+		list-style-type: none;
+		li img { display: block; margin: 0 auto; }
+		@include flexcontainer(space-between);
+	}
+	@include breakpoint(md) {
+		li { max-width: 12%; }
+	}
+	@include breakpoint(xs) {
+		li { max-width: 30%; width: 25%; }
+	}
+}
+
+.row.map { 
+	padding: 0; background-color: $primary; 
+	.text-wrap { padding: 0 30px; } 
+	.map-container { padding-right: 0; }
+	.button { height: auto!important; display: inline-block; padding: 20px 30px!important; width: auto; margin-top: 15px!important; }
+	.button:hover { opacity: 0.8; }
+}
+
+@media (max-width: 1199px) {
+	// .block.row.small figure h3 { font-size: 18px; line-height: 1.1; }
+	// .block.row.small .row>div { padding-left: 6px; padding-right: 6px; }
+}
+@media (max-width: 991px) {}
+@media screen and (max-width: 767px) and (orientation: landscape){}
+@media screen and (max-width: 767px) and (orientation: portrait){}
+@include breakpoint(xs) { 
+	.faq > div,
+	.boxed,
+	.row.multi>div,
+	.full-width > div,
+	.two-column .half,
+	.two-column .video,
+	.two-column .half .boxed { 
+		padding: 20px; margin: 0; 
+	}
+	.full-width > div { margin: 0 auto; }
+}

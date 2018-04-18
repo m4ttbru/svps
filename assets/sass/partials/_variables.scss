@@ -1,0 +1,115 @@
+// colors ======================================
+
+$primary    : #5a2854;
+$secondary  : #6aabab;
+$med        : #76777a;
+$dark       : #232526;
+$light      : #ebebe9;
+$alert      : #e45487;
+$darkest    : #404041;
+
+$gray       : #d8d9d7;
+$pink       : #e45487;
+$orange     : #f1694f;
+$green      : #87c04d;
+
+// $primary-light : saturate(lighten($primary, 15), 15);
+$primary-light : $secondary;
+$primary-lightest : $secondary;
+$secondary-light : saturate(lighten($secondary, 10), 15);
+$alert-light : saturate(lighten($alert, 8), 25);
+$med-light : lighten($med, 15);
+$pink-light : saturate(lighten($pink, 5), 25);
+
+$bodybg   : #fff;
+$bodyfont : $dark;
+$headfont : $primary;
+
+// border size =======================================
+$btn-border-size : 1px;
+
+// border radii ======================================
+$br    : 8px;
+$br-lg : 100px;
+
+// fonts ============================================
+
+/*
+ * Webfont: URWGroteskSC-Reg by URW++
+ * URL: https://www.myfonts.com/fonts/urw/grotesk/urw-grotesk-sc-t-regular/
+ * Copyright: (URW)++,Copyright 2006 by (URW)++ Design &amp; Development
+ * Licensed pageviews: 20,000
+*/
+	// font-family: URWGroteskNar-Reg;
+	// font-family: URWGroteskNar-Lig;
+	// font-family: URWGroteskWid-Bol;
+@font-face {
+	font-family: 'URWGroteskNar-Reg';
+	src: url('../fonts/360179_A_0.eot');
+	src: url('../fonts/360179_A_0.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/360179_A_0.woff2') format('woff2'),
+		url('../fonts/360179_A_0.woff') format('woff'),
+		url('../fonts/360179_A_0.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'URWGroteskNar-Lig';
+	src: url('../fonts/360179_E_0.eot');
+	src: url('../fonts/360179_E_0.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/360179_E_0.woff2') format('woff2'),
+		url('../fonts/360179_E_0.woff') format('woff'),
+		url('../fonts/360179_E_0.ttf') format('truetype');
+}
+@font-face {
+ 	font-family: 'URWGroteskNar-Bol';
+ 	src: url('../fonts/360179_12_0.eot');
+ 	src: url('../fonts/360179_12_0.eot?#iefix') format('embedded-opentype'),
+	 	url('../fonts/360179_12_0.woff2') format('woff2'),
+	 	url('../fonts/360179_12_0.woff') format('woff'),
+	 	url('../fonts/360179_12_0.ttf') format('truetype');
+}
+
+
+// $fonthead : 'Source Sans Pro', sans-serif;
+// $fontsans : 'Source Sans Pro', sans-serif;
+$fonthead : 'URWGroteskNar-Lig', sans-serif;
+$fontsans : 'URWGroteskNar-Lig', sans-serif;
+$fontserif : $fonthead;
+
+$fontreg : 'URWGroteskNar-Reg', sans-serif;
+
+// $bodyfontsize : 16px;
+$bodyfontsize : 18px;
+
+// widths and heights ================================
+
+$contentwidth : 1000px;
+$header-height : 106px;
+$footer-height : 448px;
+
+$section-padding : 80px 0;
+
+// forms =============================================
+
+$field-text-color: $dark; 
+$field-label-color: $dark;
+$field-bg-color: #fff;
+$field-border-color: $green;
+$field-focus-bg-color: #fff;
+$field-focus-border-color: $primary-lightest;
+
+// wp admin colors ===================================
+
+$base-color: lighten($primary,10);
+$icon-color: #fff;
+$highlight-color: $primary;
+$notification-color: $alert;
+
+// icons =============================================
+
+$rarr : '\f054';
+$larr : '\f053';
+// $rarr : '\e901';
+// $larr : '\e901';
+$check : '\f14a';
+// $darr : '\';
+

@@ -1,0 +1,114 @@
+$icomoon-font-path: "../fonts" !default;
+
+$i-print: "\e900";
+$i-location: "\e901";
+$i-phone: "\e902";
+$i-fax: "\e903";
+$i-person: "\e904";
+$i-email: "\e905";
+$i-web: "\e906";
+$i-twitter: "\e907";
+$i-facebook: "\e908";
+$i-youtube: "\e909";
+$i-down: "\e90a";
+$i-home: "\e90b";
+$i-menu: "\e90c";
+$i-plus: "\e90d";
+
+@font-face {
+  font-family: 'pahealthcore';
+  src:
+    url('#{$icomoon-font-path}/pahealthcore.ttf?6jcvug') format('truetype'),
+    url('#{$icomoon-font-path}/pahealthcore.woff?6jcvug') format('woff'),
+    url('#{$icomoon-font-path}/pahealthcore.svg?6jcvug#pahealthcore') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="i-"], [class*=" i-"],
+[class^="i-"]:before, [class*=" i-"]:before {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'pahealthcore'!important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.i-print {
+  &:before {
+    content: $i-print;
+  }
+}
+.i-location {
+  &:before {
+    content: $i-location;
+  }
+}
+.i-phone {
+  &:before {
+    content: $i-phone;
+  }
+}
+.i-fax {
+  &:before {
+    content: $i-fax;
+  }
+}
+.i-person {
+  &:before {
+    content: $i-person;
+  }
+}
+.i-email {
+  &:before {
+    content: $i-email;
+  }
+}
+.i-web {
+  &:before {
+    content: $i-web;
+  }
+}
+.i-twitter {
+  &:before {
+    content: $i-twitter;
+  }
+}
+.i-facebook {
+  &:before {
+    content: $i-facebook;
+  }
+}
+.i-youtube {
+  &:before {
+    content: $i-youtube;
+  }
+}
+.i-down {
+  &:before {
+    content: $i-down;
+  }
+}
+.i-home {
+  &:before {
+    content: $i-home;
+  }
+}
+.i-menu {
+  &:before {
+    content: $i-menu;
+  }
+}
+.i-plus {
+  &:before {
+    content: $i-plus;
+  }
+}
+

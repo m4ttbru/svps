@@ -1,0 +1,9 @@
+// $base-color: #252121;
+// $icon-color: #0e76bc;
+// $highlight-color: #005838;
+// $notification-color: #f36a22;
+ 
+
+@import "../partials/_variables.scss";
+$form-checked: $base-color;
+@import "_admin.scss";

@@ -1,0 +1,21 @@
+// Requirements
+// ============
+
+@import "susy";
+
+$susy: (
+  columns: 12,
+  gutters: 1/4, 
+  gutter-position: after
+);
+
+// http://susy.readthedocs.io/settings/#gutter-position
+// <num of columns> <gutter-width> <column-width> <gutter-position>
+
+// @include layout(12 (18px 10px) after);
+
+// @include layout(12 1/4 inside-static);
+
+// @include layout(12 (18px 10px) inside-static);
+
+// @include layout(14 (90px 30px) after); 

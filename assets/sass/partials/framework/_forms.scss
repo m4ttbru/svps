@@ -1,0 +1,310 @@
+
+form {margin: 0 0 20px; }
+.row form .row {margin: 0 -6px; }
+.row form .row .column,
+.row form .row .columns {
+	padding: 0 6px;
+}
+
+.row form .row.collapse {
+	margin: 0;
+}
+
+.row form .row.collapse .column,
+.row form .row.collapse .columns {
+	padding: 0;
+}
+
+// search form
+input[type="submit"] { width: auto; }
+input[type="search"] { 
+	max-width: 100%; 
+	max-width: 400px;
+	display: inline-block;
+	-webkit-appearance: none;
+	border:none;
+	border-bottom: 1px solid $light;
+
+	+input[type="submit"] { 
+		height: 42px; width: 42px; 
+		margin-left: -5px;
+		border: 1px solid $dark; 
+		color: $light;
+		background-color: $dark; 
+		padding: 0 10px; 
+		display: inline-block;
+		&:hover {
+			background-color: lighten($dark,10);
+		}
+	}
+	&:focus, &:hover, &:active { 
+		border-color: $primary; 
+	}
+}
+
+
+label {
+	font-size: $bodyfontsize;
+	color: $field-label-color;
+	cursor: pointer;
+	display: block;
+	font-weight: 500;
+	margin-bottom: 3px;
+}
+
+input[type="text"],
+select,
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+textarea {
+	background-color: $field-bg-color;
+	border: 1px solid $field-border-color;
+	color: $field-text-color;
+	font-family: inherit;
+	-webkit-border-radius: $br;
+	border-radius: $br;
+	// -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+	// -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+	// box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+	display: block;
+	font-size: 14px;
+	height: 35px;
+	margin: 0 0 12px 0;
+	padding: 16px 12px;
+	padding: 30px;
+	width: 100%;
+	-webkit-transition: all 0.15s linear;
+	-moz-transition: all 0.15s linear;
+	-o-transition: all 0.15s linear;
+	transition: all 0.15s linear;
+	outline: none;
+	
+	@include breakpoint(xs) { 
+		font-size: 16px;
+	}
+
+	&:focus {
+		background: $field-focus-bg-color;
+		border-color: $field-focus-border-color;
+	}
+}
+
+
+input[type="text"][disabled],
+input[type="password"][disabled],
+input[type="date"][disabled],
+input[type="datetime"][disabled],
+input[type="email"][disabled],
+input[type="number"][disabled],
+input[type="search"][disabled],
+input[type="tel"][disabled],
+input[type="time"][disabled],
+input[type="url"][disabled],
+textarea[disabled] {
+	background-color: $med;
+}
+
+textarea {
+	height: auto;
+	max-width: 100%;
+}
+
+select {
+	width: 100%;
+	padding: 6px 10px;
+	font-family: inherit;
+	width: 100%;
+	margin-bottom: 12px;
+}
+
+fieldset {
+	border: solid 1px $med;
+	-webkit-border-radius: $br;
+	border-radius: $br;
+	padding: 12px;
+	margin: 18px 0;
+}
+
+fieldset legend {
+	font-weight: bold;
+	background: #fff;
+	padding: 0 3px; 
+	margin: 0;
+	margin-left: -3px;
+}
+
+// orange
+
+.orange {
+	input[type="text"],
+	select,
+	input[type="password"],
+	input[type="date"],
+	input[type="datetime"],
+	input[type="email"],
+	input[type="number"],
+	input[type="search"],
+	input[type="tel"],
+	input[type="time"],
+	input[type="url"],
+	textarea {
+		background-color: #fff;
+		border: 1px solid $orange;
+		color: $field-text-color;
+		&:focus {
+			background: $field-focus-bg-color;
+			border-color: $field-focus-border-color;
+		}
+	}
+	input[type="submit"].button {
+		background-color: #fff;
+		border: 1px solid $orange;
+		color: $orange;
+		&:hover {
+			background-color: $orange;
+			color: #fff;
+		}
+	}
+}
+
+.green {
+	input[type="text"],
+	select,
+	input[type="password"],
+	input[type="date"],
+	input[type="datetime"],
+	input[type="email"],
+	input[type="number"],
+	input[type="search"],
+	input[type="tel"],
+	input[type="time"],
+	input[type="url"],
+	textarea {
+		background-color: #fff;
+		border: 1px solid $green;
+		color: $field-text-color;
+		&:focus {
+			background: $field-focus-bg-color;
+			border-color: $field-focus-border-color;
+		}
+	}
+	input[type="submit"].button {
+		background-color: #fff;
+		border: 1px solid $green;
+		color: $green;
+		&:hover {
+			background-color: $green;
+			color: #fff;
+		}
+	}
+}
+.teal {
+	input[type="text"],
+	select,
+	input[type="password"],
+	input[type="date"],
+	input[type="datetime"],
+	input[type="email"],
+	input[type="number"],
+	input[type="search"],
+	input[type="tel"],
+	input[type="time"],
+	input[type="url"],
+	textarea {
+		background-color: #fff;
+		border: 1px solid $secondary;
+		// color: $field-text-color;
+		&:focus {
+			// background: $field-focus-bg-color;
+			// border-color: $field-focus-border-color;
+		}
+	}
+	input[type="submit"].button {
+		background-color: #fff;
+		border: 1px solid $secondary;
+		color: $secondary;
+		&:hover {
+			background-color: $secondary;
+			color: #fff;
+		}
+	}
+}
+
+.gform_wrapper.gf_browser_chrome .gfield_checkbox li input, 
+.gform_wrapper.gf_browser_chrome .gfield_checkbox li input[type=checkbox], 
+.gform_wrapper.gf_browser_chrome .gfield_radio li input[type=radio] {
+	margin-top: 0!important; 
+	margin-right: 14px;
+}
+
+.gform_wrapper ul.gfield_checkbox li input[type=checkbox]:checked+label, 
+.gform_wrapper ul.gfield_radio li input[type=radio]:checked+label {
+	font-weight: normal!important;
+	color: $secondary!important;
+}
+
+.error input,
+input.error,
+.error textarea,
+textarea.error,
+.error input:focus,
+input.error:focus,
+.error textarea:focus,
+textarea.error:focus {
+	border-color: #c60f13;
+	background-color: rgba(198,15,19,0.1);
+}
+
+.error input:focus,
+input.error:focus,
+.error textarea:focus,
+textarea.error:focus {
+	outline-color: #f5797c;
+}
+
+.error label,
+label.error {
+	color: #c60f13;
+}
+
+
+div.gform_wrapper {
+	
+	input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
+		padding: 26px;
+	}
+
+	.gform_previous_button.button {
+		background-color: transparent;
+		color: $primary;
+		border:none;
+	}
+	div.gf_page_steps {
+		border-bottom: none;
+		.gf_step {  
+			margin: 10px 10px 10px 0;
+			.gf_step_number {
+				width: 26px; 
+				height: 26px; 
+				padding: 4px; 
+				text-align: center;
+				background-color: $med; 
+				border-radius: 90px; 
+				font-weight: bold; 
+			}
+			&.gf_step_active {
+				.gf_step_number { background-color: $primary; }
+			}
+			span.gf_step_label { display: none; }
+		}
+	}
+	div.gform_page_footer { border: none; }
+
+}
